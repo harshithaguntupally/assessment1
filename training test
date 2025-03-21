@@ -1,0 +1,64 @@
+mysql> use assessment;
+Database changed
+mysql> create table Student(
+    -> Rollno int primary key,
+    -> name varchar(20),
+    -> branch varchar(30),
+    -> email varchar(40),
+    -> mob int);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> describe student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| Rollno | int         | NO   | PRI | NULL    |       |
+| name   | varchar(20) | YES  |     | NULL    |       |
+| branch | varchar(30) | YES  |     | NULL    |       |
+| email  | varchar(40) | YES  |     | NULL    |       |
+| mob    | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.05 sec)
+
+mysql> Insert into Student values(1,"Harshitha","cse","harshitha10@gmail.com",9618788908);
+ERROR 1264 (22003): Out of range value for column 'mob' at row 1
+mysql> Insert into Student values(1,"Harshitha","cse","harshitha10@gmail.com",961878);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into Student values(2,"Manvitha","ece","manvitha01@gmail.com",938120);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into Student values(3,"veena","eee","veena23@gmail.com",630168987);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into Student values(4,"hema","cs","hema05@gmail.com",886344987);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Student
+    -> ;
++--------+-----------+--------+-----------------------+-----------+
+| Rollno | name      | branch | email                 | mob       |
++--------+-----------+--------+-----------------------+-----------+
+|      1 | Harshitha | cse    | harshitha10@gmail.com |    961878 |
+|      2 | Manvitha  | ece    | manvitha01@gmail.com  |    938120 |
+|      3 | veena     | eee    | veena23@gmail.com     | 630168987 |
+|      4 | hema      | cs     | hema05@gmail.com      | 886344987 |
++--------+-----------+--------+-----------------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> Insert into Student values(5,"varsha","aiml","varsha90@gmail.com",12345678);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Student;
++--------+-----------+--------+-----------------------+-----------+
+| Rollno | name      | branch | email                 | mob       |
++--------+-----------+--------+-----------------------+-----------+
+|      1 | Harshitha | cse    | harshitha10@gmail.com |    961878 |
+|      2 | Manvitha  | ece    | manvitha01@gmail.com  |    938120 |
+|      3 | veena     | eee    | veena23@gmail.com     | 630168987 |
+|      4 | hema      | cs     | hema05@gmail.com      | 886344987 |
+|      5 | varsha    | aiml   | varsha90@gmail.com    |  12345678 |
++--------+-----------+--------+-----------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql>
